@@ -46,7 +46,7 @@ jobs:
           print("Init states path:", get_libero_path("init_states"))
           PY
       - name: Run oracle branching smoke
-        run: python scripts/run_libero_oracle_smoke.py --suite libero_object --task-id 0 --init-state-id 0 --output results/libero_oracle_smoke.json
+        run: python scripts/run_libero_oracle_smoke.py --suite libero_goal --task-id 0 --init-state-id 0 --output results/libero_oracle_smoke.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
