@@ -51,7 +51,30 @@ def official_prompt(checkpoint: str, task: str) -> str:
     return f"In: What action should the robot take to {task.lower()}?\nOut:"
 
 
+def preprocess_libero_image(image: np.ndarray, *, center_crop: bool = True) -> np.ndarray:
+    """Match OpenVLA's official LIBERO image preprocessing."""
+    import tensorflow as tf
+
+    img = np.asarray(image)[::-1, ::-1]
+    img = tf.image.encode_jpeg(img)
+    img = tf.io.decode_image(img, expand_animations=False, dtype=tf.uint8)
+    img = tf.image.resize(img, (224, 224), method="lanczos3", antialias=True)
+    img = tf.cast(tf.clip_by_value(tf.round(img), 0, 255), tf.uint8)
+
+    if center_crop:
+        x = tf.image.convert_image_dtype(img, tf.float32)
+        scale = tf.sqrt(tf.constant(0.9, dtype=tf.float32))
+        offset = (1.0 - scale) / 2.0
+        boxes = tf.reshape(tf.stack([offset, offset, offset + scale, offset + scale]), (1, 4))
+        x = tf.image.crop_and_resize(tf.expand_dims(x, 0), boxes, tf.constant([0]), (224, 224))[0]
+        x = tf.clip_by_value(x, 0.0, 1.0)
+        img = tf.image.convert_image_dtype(x, tf.uint8, saturate=True)
+
+    return img.numpy()
+
+
 def prepare_inputs(handle: OpenVLAHandle, image: np.ndarray, task: str):
+    image = preprocess_libero_image(image, center_crop=True)
     pil = Image.fromarray(image).convert("RGB")
     inputs = handle.processor(official_prompt(handle.checkpoint, task), pil)
     return inputs.to(handle.device, dtype=torch.bfloat16)
