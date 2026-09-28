@@ -143,3 +143,86 @@ def check_branch_determinism(
     succ_consistent = len(set(bool(x) for x in successes)) == 1
     passed = bool(max_state <= state_atol and max_prog <= progress_atol and succ_consistent)
     return DeterminismResult(repeats, max_state, max_prog, succ_consistent, passed)
+
+
+def replay_from_initial_state(
+    env_factory,
+    init_state: np.ndarray,
+    prefix_actions: Iterable[np.ndarray],
+    action_chunk: Iterable[np.ndarray],
+) -> tuple[BranchResult, np.ndarray]:
+    """Evaluate one candidate in a fresh LIBERO environment.
+
+    Recreating the environment and replaying the factual prefix restores both
+    MuJoCo state and robosuite controller state. This is the preferred oracle
+    mechanism; flattened MuJoCo state alone is insufficient for exact branching
+    under stateful low-level controllers such as OSC.
+    """
+    env = env_factory()
+    try:
+        env.reset()
+        env.set_init_state(np.asarray(init_state))
+        for action in prefix_actions:
+            _, _, done, _ = env.step(np.asarray(action, dtype=float).tolist())
+            if bool(done):
+                break
+        result, final_state = _roll_chunk(env, action_chunk)
+        return result, final_state
+    finally:
+        env.close()
+
+
+def fresh_replay_branch_candidates(
+    env_factory,
+    init_state: np.ndarray,
+    prefix_actions: Iterable[np.ndarray],
+    action_chunks: Iterable[Iterable[np.ndarray]],
+) -> list[BranchResult]:
+    """Branch by reconstructing each candidate from init state + factual prefix."""
+    prefix = [np.asarray(a, dtype=float).copy() for a in prefix_actions]
+    results: list[BranchResult] = []
+    for chunk in action_chunks:
+        result, _ = replay_from_initial_state(
+            env_factory, init_state, prefix, chunk
+        )
+        results.append(result)
+    return results
+
+
+def check_fresh_replay_determinism(
+    env_factory,
+    init_state: np.ndarray,
+    prefix_actions: Iterable[np.ndarray],
+    action_chunk: Iterable[np.ndarray],
+    *,
+    repeats: int = 3,
+    state_atol: float = 1e-7,
+    progress_atol: float = 1e-12,
+) -> DeterminismResult:
+    """Check determinism using independent fresh environments.
+
+    This intentionally avoids in-place simulator restoration, because MuJoCo
+    flattened state does not include robosuite controller memory.
+    """
+    if repeats < 2:
+        raise ValueError("repeats must be >= 2")
+    prefix = [np.asarray(a, dtype=float).copy() for a in prefix_actions]
+    chunk = [np.asarray(a, dtype=float).copy() for a in action_chunk]
+    finals = []
+    progresses = []
+    successes = []
+    for _ in range(repeats):
+        result, final_state = replay_from_initial_state(
+            env_factory, init_state, prefix, chunk
+        )
+        finals.append(final_state)
+        progresses.append(result.final_progress)
+        successes.append(result.success)
+
+    ref = finals[0]
+    max_state = max(float(np.max(np.abs(x - ref))) for x in finals[1:])
+    p_ref = progresses[0]
+    max_prog = max(abs(float(x) - float(p_ref)) for x in progresses[1:])
+    succ_consistent = len(set(bool(x) for x in successes)) == 1
+    passed = bool(max_state <= state_atol and max_prog <= progress_atol and succ_consistent)
+    return DeterminismResult(repeats, max_state, max_prog, succ_consistent, passed)
