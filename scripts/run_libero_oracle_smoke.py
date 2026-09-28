@@ -85,20 +85,32 @@ def main() -> None:
     init_state = init_states[args.init_state_id]
     bddl = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
 
-    env = OffScreenRenderEnv(
-        bddl_file_name=bddl,
-        camera_heights=128,
-        camera_widths=128,
-    )
-    env.seed(0)
-    env.reset()
-    env.set_init_state(init_state)
+    def env_factory():
+        env = OffScreenRenderEnv(
+            bddl_file_name=bddl,
+            camera_heights=128,
+            camera_widths=128,
+        )
+        env.seed(0)
+        return env
 
     chunks = candidate_chunks(args.horizon, args.magnitude)
-    det = check_branch_determinism(env, chunks[0], repeats=args.repeats, state_atol=1e-7)
-    p0 = goal_predicate_progress(env)
-    results = branch_candidates(env, chunks)
-    env.close()
+    prefix = [np.zeros(7, dtype=np.float32) for _ in range(10)]
+    det = check_fresh_replay_determinism(
+        env_factory,
+        init_state,
+        prefix,
+        chunks[0],
+        repeats=args.repeats,
+        state_atol=1e-7,
+    )
+    results = fresh_replay_branch_candidates(
+        env_factory,
+        init_state,
+        prefix,
+        chunks,
+    )
+    p0 = results[0].initial_progress
 
     payload = {
         "kind": "LIBERO Oracle-CAPE infrastructure smoke test",
