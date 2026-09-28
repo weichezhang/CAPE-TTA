@@ -68,7 +68,21 @@ def main() -> None:
     suite_cls = benchmark.get_benchmark_dict()[args.suite]
     suite = suite_cls()
     task = suite.get_task(args.task_id)
-    init_states = suite.get_task_init_states(args.task_id)
+    # LIBERO's upstream helper calls torch.load() without an explicit
+    # weights_only argument. PyTorch >=2.6 changed that default to True,
+    # which rejects LIBERO's trusted numpy-containing init-state files.
+    # Load only this official, repository-bundled file with weights_only=False.
+    import torch
+    init_states_path = os.path.join(
+        get_libero_path("init_states"),
+        task.problem_folder,
+        task.init_states_file,
+    )
+    try:
+        init_states = torch.load(init_states_path, weights_only=False)
+    except TypeError:
+        # Compatibility with older PyTorch versions that predate weights_only.
+        init_states = torch.load(init_states_path)
     init_state = init_states[args.init_state_id]
     bddl = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
 
