@@ -45,9 +45,9 @@ def main() -> None:
     os.environ.setdefault("MUJOCO_GL", "osmesa")
     os.environ.setdefault("PYOPENGL_PLATFORM", "osmesa")
 
-    from libero.libero import benchmark
-    from libero.libero.envs import OffScreenRenderEnv
-    from libero.libero import get_libero_path
+    from libero import benchmark
+    from libero.envs import OffScreenRenderEnv
+    from libero import get_libero_path
 
     suite_cls = benchmark.get_benchmark_dict()[args.suite]
     suite = suite_cls()
