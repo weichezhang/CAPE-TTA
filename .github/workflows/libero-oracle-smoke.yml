@@ -15,6 +15,7 @@ jobs:
     env:
       MUJOCO_GL: osmesa
       PYOPENGL_PLATFORM: osmesa
+      PYTHONPATH: /tmp/LIBERO/libero
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,6 +30,21 @@ jobs:
           git clone --depth 1 https://github.com/Lifelong-Robot-Learning/LIBERO.git /tmp/LIBERO
           pip install -r requirements/libero_oracle.txt
           pip install -e /tmp/LIBERO
+          mkdir -p "$HOME/.libero"
+          cat > "$HOME/.libero/config.yaml" <<'EOF'
+          benchmark_root: /tmp/LIBERO/libero/libero
+          bddl_files: /tmp/LIBERO/libero/libero/bddl_files
+          init_states: /tmp/LIBERO/libero/libero/init_files
+          datasets: /tmp/LIBERO/libero/datasets
+          assets: /tmp/LIBERO/libero/libero/assets
+          EOF
+          python - <<'PY'
+          import libero
+          from libero import get_libero_path
+          print("LIBERO import OK:", libero.__file__)
+          print("BDDL path:", get_libero_path("bddl_files"))
+          print("Init states path:", get_libero_path("init_states"))
+          PY
       - name: Run oracle branching smoke
         run: python scripts/run_libero_oracle_smoke.py --suite libero_spatial --task-id 0 --init-state-id 0 --output results/libero_oracle_smoke.json
       - uses: actions/upload-artifact@v4
