@@ -56,6 +56,11 @@ def main() -> None:
     if os.path.isdir(repo_root) and repo_root not in sys.path:
         sys.path.insert(0, repo_root)
 
+    import matplotlib
+    import mujoco
+    import robosuite
+    print("runtime versions:", {"numpy": np.__version__, "matplotlib": matplotlib.__version__, "mujoco": mujoco.__version__, "robosuite": getattr(robosuite, "__version__", "unknown")})
+
     from libero.libero import benchmark
     from libero.libero.envs import OffScreenRenderEnv
     from libero.libero import get_libero_path
