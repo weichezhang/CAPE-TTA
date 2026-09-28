@@ -54,6 +54,10 @@ def official_prompt(checkpoint: str, task: str) -> str:
 def preprocess_libero_image(image: np.ndarray, *, center_crop: bool = True) -> np.ndarray:
     """Match OpenVLA's official LIBERO image preprocessing."""
     import tensorflow as tf
+    try:
+        tf.config.set_visible_devices([], "GPU")
+    except RuntimeError:
+        pass
 
     img = np.asarray(image)[::-1, ::-1]
     img = tf.image.encode_jpeg(img)
