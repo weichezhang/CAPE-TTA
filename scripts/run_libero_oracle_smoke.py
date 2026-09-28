@@ -10,9 +10,8 @@ from pathlib import Path
 import numpy as np
 
 from cape_tta.libero_oracle import (
-    branch_candidates,
-    check_branch_determinism,
-    goal_predicate_progress,
+    check_fresh_replay_determinism,
+    fresh_replay_branch_candidates,
 )
 
 
