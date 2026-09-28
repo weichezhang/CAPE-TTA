@@ -1,0 +1,7 @@
+# Aligned with OpenVLA's official LIBERO evaluation dependencies.
+imageio[ffmpeg]
+robosuite==1.4.1
+bddl
+easydict
+cloudpickle
+gym
