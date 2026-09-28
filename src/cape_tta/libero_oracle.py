@@ -54,6 +54,61 @@ def goal_predicate_progress(env) -> float:
     return float(np.mean(values))
 
 
+
+def soft_task_potential(
+    env,
+    *,
+    reach_scale: float = 0.12,
+    goal_scale: float = 0.20,
+    reach_weight: float = 0.30,
+) -> float:
+    """Simulation-only continuous task potential for short counterfactual branches.
+
+    Official LIBERO reward remains sparse. This diagnostic potential uses privileged
+    simulator geometry and BDDL goal semantics; it must be reported separately from
+    benchmark success and must not be described as an official LIBERO reward.
+    """
+    base = _unwrap(env)
+    problem = getattr(base, "parsed_problem", None)
+    if problem is None or "goal_state" not in problem:
+        raise AttributeError("LIBERO environment does not expose goal_state")
+
+    scores = []
+    for goal in list(problem["goal_state"]):
+        if bool(base._eval_predicate(goal)):
+            scores.append(1.0)
+            continue
+
+        pred = str(goal[0]).lower()
+        if pred in {"on", "in", "stack"} and len(goal) >= 3:
+            obj_name, target_name = goal[1], goal[2]
+            states = getattr(base, "object_states_dict", {})
+            if obj_name not in states or target_name not in states:
+                scores.append(0.0)
+                continue
+
+            obj_pos = np.asarray(states[obj_name].get_geom_state()["pos"], dtype=float)
+            target_pos = np.asarray(states[target_name].get_geom_state()["pos"], dtype=float)
+            goal_dist = float(np.linalg.norm(obj_pos - target_pos))
+            goal_score = float(np.exp(-goal_dist / goal_scale))
+
+            reach_score = 0.0
+            try:
+                obs = base._get_observations(force_update=True)
+                eef = np.asarray(obs["robot0_eef_pos"], dtype=float)
+                reach_dist = float(np.linalg.norm(eef - obj_pos))
+                reach_score = float(np.exp(-reach_dist / reach_scale))
+            except Exception:
+                pass
+
+            scores.append(reach_weight * reach_score + (1.0 - reach_weight) * goal_score)
+        else:
+            # Articulated predicates (open/close/turn-on/off) remain binary until
+            # a task-specific joint-normalized potential is added and validated.
+            scores.append(0.0)
+
+    return float(np.mean(scores)) if scores else float(bool(base._check_success()))
+
 def snapshot_sim_state(env) -> np.ndarray:
     if hasattr(env, "get_sim_state"):
         return np.asarray(env.get_sim_state()).copy()
