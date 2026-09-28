@@ -1,7 +1,12 @@
-# Aligned with OpenVLA's official LIBERO evaluation dependencies.
+# LIBERO Oracle smoke dependencies.
+# OpenVLA uses robosuite==1.4.1; LIBERO upstream additionally requires matplotlib.
+# Pin versions that are known to be compatible with the LIBERO/robosuite 1.4 generation.
+numpy==1.26.4
+mujoco==2.3.7
+matplotlib==3.7.5
 imageio[ffmpeg]
 robosuite==1.4.1
 bddl
 easydict
 cloudpickle
-gym
+gym==0.25.2
