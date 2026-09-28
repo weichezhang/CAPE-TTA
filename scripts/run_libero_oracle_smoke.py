@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -44,6 +45,16 @@ def main() -> None:
 
     os.environ.setdefault("MUJOCO_GL", "osmesa")
     os.environ.setdefault("PYOPENGL_PLATFORM", "osmesa")
+
+    # LIBERO's repository uses a nested namespace layout:
+    #   <repo>/libero/libero/__init__.py
+    # Its internal modules import "libero.libero", so putting <repo>/libero
+    # on sys.path incorrectly shadows the outer namespace with the inner package.
+    repo_root = os.environ.get("LIBERO_REPO_ROOT", "/tmp/LIBERO")
+    shadow_path = os.path.join(repo_root, "libero")
+    sys.path[:] = [p for p in sys.path if os.path.abspath(p or ".") != os.path.abspath(shadow_path)]
+    if os.path.isdir(repo_root) and repo_root not in sys.path:
+        sys.path.insert(0, repo_root)
 
     from libero.libero import benchmark
     from libero.libero.envs import OffScreenRenderEnv
