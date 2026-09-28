@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - 'scripts/openvla_checkpoint_preflight.py'
+      - 'scripts/run_openvla_oracle_pilot.py'
+      - 'src/cape_tta/openvla_bridge.py'
       - '.github/workflows/openvla-preflight.yml'
 
 jobs:
