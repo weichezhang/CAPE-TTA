@@ -22,6 +22,8 @@ jobs:
           pip install numpy==1.26.4
           pip install --index-url https://download.pytorch.org/whl/cpu torch==2.2.0 torchvision==0.17.0
           pip install transformers==4.40.1 tokenizers==0.19.1 timm==0.9.10 pillow==10.3.0
+      - name: Compile CAPE OpenVLA bridge
+        run: python -m py_compile src/cape_tta/openvla_bridge.py scripts/run_openvla_oracle_pilot.py
       - name: Validate official LIBERO-Spatial checkpoint
         run: |
           python scripts/openvla_checkpoint_preflight.py             --checkpoint openvla/openvla-7b-finetuned-libero-spatial             --suite libero_spatial
