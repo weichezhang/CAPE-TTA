@@ -1,0 +1,38 @@
+name: LIBERO Oracle-CAPE smoke
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'src/cape_tta/libero_oracle.py'
+      - 'scripts/run_libero_oracle_smoke.py'
+      - '.github/workflows/libero-oracle-smoke.yml'
+
+jobs:
+  oracle-smoke:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    env:
+      MUJOCO_GL: osmesa
+      PYOPENGL_PLATFORM: osmesa
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: System packages
+        run: sudo apt-get update && sudo apt-get install -y libosmesa6-dev libgl1-mesa-glx libglfw3
+      - name: Install CAPE-TTA
+        run: pip install -e .
+      - name: Install LIBERO
+        run: |
+          git clone --depth 1 https://github.com/Lifelong-Robot-Learning/LIBERO.git /tmp/LIBERO
+          pip install -r requirements/libero_oracle.txt
+          pip install -e /tmp/LIBERO
+      - name: Run oracle branching smoke
+        run: python scripts/run_libero_oracle_smoke.py --suite libero_spatial --task-id 0 --init-state-id 0 --output results/libero_oracle_smoke.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: libero-oracle-smoke
+          path: results/libero_oracle_smoke.json
