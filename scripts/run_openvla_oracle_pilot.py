@@ -126,6 +126,8 @@ def main():
     ap.add_argument("--top-p", type=float, default=0.95)
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--no-flash-attention", action="store_true")
+    ap.add_argument("--load-in-8bit", action="store_true")
+    ap.add_argument("--input-dtype", choices=["bf16", "fp16"], default="bf16")
     ap.add_argument("--output", default="results/openvla_oracle_pilot.json")
     args = ap.parse_args()
 
@@ -164,6 +166,8 @@ def main():
         args.checkpoint,
         args.suite,
         use_flash_attention=not args.no_flash_attention,
+        load_in_8bit=args.load_in_8bit,
+        input_dtype=args.input_dtype,
     )
 
     probe = env_factory()
@@ -264,6 +268,8 @@ def main():
         "horizon": args.horizon,
         "temperature": args.temperature,
         "top_p": args.top_p,
+        "load_in_8bit": args.load_in_8bit,
+        "input_dtype": args.input_dtype,
         "unnorm_key": handle.unnorm_key,
         "wrapper_parity_max_abs": parity_error,
         "fresh_replay_determinism": {
