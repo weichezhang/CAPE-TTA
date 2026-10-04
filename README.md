@@ -17,3 +17,13 @@ This smoke test validates the simulator-side oracle machinery only. It is not a 
 
 ## Run
 The GitHub Actions workflow is in `.github/workflows/libero-oracle-smoke.yml`.
+
+## Free Colab OpenVLA pilot
+
+For users without paid GPU access, run:
+
+`colab/CAPE_TTA_OpenVLA_Oracle_Pilot.ipynb`
+
+The notebook builds an isolated Python 3.10 environment, installs the OpenVLA/LIBERO stack, loads the official LIBERO-Spatial OpenVLA checkpoint in 8-bit FP16 mode for a free T4-class GPU, and runs a real K=4 fresh-replay Oracle-CAPE pilot. The output is `openvla_oracle_pilot_colab.json`.
+
+This is a pilot / infrastructure result, not the final paper benchmark. Final results must report the quantization/runtime setting and be scaled to the prespecified task/init-state evaluation grid.
