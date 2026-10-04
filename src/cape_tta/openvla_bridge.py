@@ -17,20 +17,33 @@ class OpenVLAHandle:
     checkpoint: str
     unnorm_key: str
     device: torch.device
+    input_dtype: torch.dtype
 
 
-def load_openvla(checkpoint: str, suite: str, *, use_flash_attention: bool = True) -> OpenVLAHandle:
+def load_openvla(
+    checkpoint: str,
+    suite: str,
+    *,
+    use_flash_attention: bool = True,
+    load_in_8bit: bool = False,
+    input_dtype: str = "bf16",
+) -> OpenVLAHandle:
     if not torch.cuda.is_available():
         raise RuntimeError("The OpenVLA experiment requires a CUDA GPU.")
     device = torch.device("cuda:0")
     attn = "flash_attention_2" if use_flash_attention else "sdpa"
+    dtype = torch.float16 if input_dtype == "fp16" else torch.bfloat16
     model = AutoModelForVision2Seq.from_pretrained(
         checkpoint,
         attn_implementation=attn,
-        torch_dtype=torch.bfloat16,
+        torch_dtype=dtype,
         low_cpu_mem_usage=True,
         trust_remote_code=True,
-    ).to(device)
+        load_in_8bit=load_in_8bit,
+        device_map={"": 0} if load_in_8bit else None,
+    )
+    if not load_in_8bit:
+        model = model.to(device)
     processor = AutoProcessor.from_pretrained(checkpoint, trust_remote_code=True)
 
     key = suite
@@ -38,7 +51,7 @@ def load_openvla(checkpoint: str, suite: str, *, use_flash_attention: bool = Tru
         key = f"{key}_no_noops"
     if key not in model.norm_stats:
         raise RuntimeError(f"No norm_stats for {suite}; available={list(model.norm_stats)}")
-    return OpenVLAHandle(model, processor, checkpoint, key, device)
+    return OpenVLAHandle(model, processor, checkpoint, key, device, dtype)
 
 
 def official_prompt(checkpoint: str, task: str) -> str:
@@ -81,7 +94,7 @@ def prepare_inputs(handle: OpenVLAHandle, image: np.ndarray, task: str):
     image = preprocess_libero_image(image, center_crop=True)
     pil = Image.fromarray(image).convert("RGB")
     inputs = handle.processor(official_prompt(handle.checkpoint, task), pil)
-    return inputs.to(handle.device, dtype=torch.bfloat16)
+    return inputs.to(handle.device, dtype=handle.input_dtype)
 
 
 def _decode_action(handle: OpenVLAHandle, token_ids: np.ndarray) -> np.ndarray:
