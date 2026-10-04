@@ -260,6 +260,13 @@ def main():
         "kind": "OpenVLA Oracle-CAPE pilot",
         "scientific_result": False,
         "checkpoint": args.checkpoint,
+        "cape_commit": os.environ.get("CAPE_COMMIT"),
+        "runtime": {
+            "torch": torch.__version__,
+            "cuda": torch.version.cuda,
+            "gpu": torch.cuda.get_device_name(0),
+            "compute_capability": list(torch.cuda.get_device_capability(0)),
+        },
         "suite": args.suite,
         "task_id": args.task_id,
         "task_language": task.language,
