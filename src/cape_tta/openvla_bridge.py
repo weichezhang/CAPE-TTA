@@ -124,6 +124,8 @@ def generate_action(
     top_p: float = 0.95,
     seed: Optional[int] = None,
     restrict_to_action_tokens: bool = True,
+    top_k: Optional[int] = None,
+    diagnostics: Optional[dict] = None,
 ) -> tuple[np.ndarray, float, list[int]]:
     """Generate one 7-DoF action and its sequence log-probability."""
     if seed is not None:
@@ -147,8 +149,12 @@ def generate_action(
         "output_scores": True,
     }
     if do_sample:
+        if temperature <= 0 or not 0 < top_p <= 1 or (top_k is not None and top_k < 0):
+            raise ValueError('Invalid temperature, top_p or top_k')
         generation_kwargs["temperature"] = temperature
         generation_kwargs["top_p"] = top_p
+        if top_k is not None:
+            generation_kwargs['top_k'] = top_k
 
     if restrict_to_action_tokens:
         low = int(handle.model.vocab_size - 256)
@@ -161,6 +167,17 @@ def generate_action(
     logprob = 0.0
     for score, tok in zip(out.scores, ids):
         logprob += float(torch.log_softmax(score[0], dim=-1)[tok].item())
+
+    if diagnostics is not None:
+        from .sampling_diagnostics import probability_summary
+        diagnostics.update({
+            'score_space': 'generation scores after processors and sampling warpers; not base-policy log probability',
+            'requested_top_k': top_k,
+            'effective_top_k': top_k if top_k is not None else getattr(handle.model.generation_config, 'top_k', None),
+            'restrict_to_action_tokens': restrict_to_action_tokens,
+            'tokens': [probability_summary(torch.softmax(score[0].float(), dim=-1).detach().cpu().tolist())
+                       for score in out.scores],
+        })
 
     ids_np = ids.detach().cpu().numpy()
     return _decode_action(handle, ids_np), logprob, ids_np.astype(int).tolist()
