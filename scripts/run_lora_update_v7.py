@@ -69,7 +69,8 @@ def main():
             def factory():
                 env=OffScreenRenderEnv(bddl_file_name=str(bddl),camera_heights=256,camera_widths=256);env.seed(0);return env
             def policy(obs):
-                raw,_,_=generate_action(handle,obs['agentview_image'],task.language,do_sample=False,restrict_to_action_tokens=False)
+                with torch.autocast('cuda', dtype=torch.float16):
+                    raw,_,_=generate_action(handle,obs['agentview_image'],task.language,do_sample=False,restrict_to_action_tokens=False)
                 return to_libero_action(raw).tolist()
             for state_id in args.init_state_ids:
                 restore(); env=factory()
