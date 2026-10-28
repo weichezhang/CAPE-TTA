@@ -22,6 +22,7 @@ LIBERO_SHA = '8f1084e3132a39270c3a13ebe37270a43ece2a01'
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--run-dir', required=True)
+    parser.add_argument('--prepare-only', action='store_true', help='Prepare and validate environment without rerunning the pilot')
     args = parser.parse_args()
     repo = Path(__file__).resolve().parents[1]
     run_dir = Path(args.run_dir).resolve()
@@ -119,6 +120,9 @@ def main():
                 'print("MuJoCo", mujoco.__version__); '
                 'print("BDDL", get_libero_path("bddl_files"))')
         run([py, '-u', '-c', code], env=env)
+        if args.prepare_only:
+            manifest['status'] = 'environment_ready'
+            return 0
         stage('OpenVLA Oracle pilot')
         output = run_dir / 'openvla_oracle_pilot_colab.json'
         run([py, '-u', repo / 'scripts/run_openvla_oracle_pilot.py', '--checkpoint',
