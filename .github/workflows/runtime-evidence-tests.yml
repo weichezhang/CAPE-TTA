@@ -10,6 +10,9 @@ on:
       - 'src/cape_tta/openvla_bridge.py'
       - 'scripts/probe_openvla_diversity.py'
       - 'tests/test_sampling_diagnostics.py'
+      - 'src/cape_tta/rollout_evidence.py'
+      - 'scripts/run_counterfactual_feasibility.py'
+      - 'tests/test_rollout_evidence.py'
       - '.github/workflows/runtime-evidence-tests.yml'
   pull_request:
   workflow_dispatch:
