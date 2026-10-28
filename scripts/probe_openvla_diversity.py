@@ -33,12 +33,22 @@ class Tee:
 
     def write(self, text):
         for stream in self.streams:
-            stream.write(text); stream.flush()
+            if not getattr(stream, 'closed', False):
+                stream.write(text); stream.flush()
         return len(text)
 
     def flush(self):
         for stream in self.streams:
-            stream.flush()
+            if not getattr(stream, 'closed', False):
+                stream.flush()
+
+    def close(self):
+        # Loggers can retain this proxy through interpreter shutdown.
+        # It owns neither the console nor the run.log file.
+        self.flush()
+
+    def isatty(self):
+        return False
 
 
 def main():

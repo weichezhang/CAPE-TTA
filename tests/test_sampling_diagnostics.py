@@ -2,6 +2,7 @@ import importlib.util
 import math
 from pathlib import Path
 import unittest
+import io
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('sampling_diagnostics', ROOT / 'src/cape_tta/sampling_diagnostics.py')
@@ -33,6 +34,21 @@ class DistributionTests(unittest.TestCase):
         self.assertEqual(result['unique_token_candidates'], 2)
         self.assertEqual(result['unique_executed_actions'], 1)
         self.assertEqual(result['baseline_token_matches'], 1)
+
+
+class TeeTests(unittest.TestCase):
+    def test_shutdown_proxy_preserves_live_console_and_ignores_closed_log(self):
+        spec = importlib.util.spec_from_file_location('probe', ROOT / 'scripts/probe_openvla_diversity.py')
+        probe = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(probe)
+        console, log = io.StringIO(), io.StringIO()
+        tee = probe.Tee(console, log)
+        tee.write('before\n')
+        log.close()
+        tee.close()
+        tee.write('after\n')
+        self.assertFalse(console.closed)
+        self.assertEqual(console.getvalue(), 'before\nafter\n')
 
     def test_repeated_candidates_are_not_independent_actions(self):
         candidate = {'tokens': [10] * 7, 'env_action': [0.] * 7}
