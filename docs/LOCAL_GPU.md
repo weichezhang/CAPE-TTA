@@ -1,5 +1,32 @@
 # 本地 GPU：运行候选多样性诊断
 
+## RTX 50 系列 / RTX 5060 Ti 8GB：先做兼容性检查
+
+用户 2026-10-28 的 nvidia-smi 确认为 RTX 5060 Ti 8GB，空闲约 6.6GiB。
+下面的 torch 2.2.0/cu121、bitsandbytes 0.43.1 安装命令是已验证 T4 环境，
+**不适用于直接配置这台 Blackwell 电脑**。旧版诊断脚本固定使用 8-bit，
+也不要直接在这台机器上运行来判断模型是否支持本地 GPU。
+
+Blackwell 需使用支持相应架构的 PyTorch/CUDA 构建与量化内核；
+PyTorch 2.7/cu128 是官方引入 Blackwell 支持的组合之一，
+bitsandbytes 0.46.0 的 CUDA 12.8 wheel 支持 sm120。
+这些库分别支持硬件，不代表其与 OpenVLA 旧依赖组合已验证。
+需单独环境完成 CUDA 张量操作、量化 kernel、模型加载和 wrapper parity 测试。
+
+8GB 显存下应评估 4-bit 推理或受控 CPU offload 的可行性；
+不保证可装入，也不保证可完成测试时训练。切换量化后须重新验证，
+不能将结果与之前 T4 8-bit 实验不加区分地合并。
+
+先在 PowerShell 执行 wsl -l -v，确认是否有 WSL2 Linux；
+再核实内存、磁盘和实际可用显存后确定安装配置。
+nvidia-smi 中 CUDA UMD Version 不是已安装 CUDA Toolkit 或 PyTorch 的版本。
+
+官方依据：
+- https://pytorch.org/blog/pytorch-2-7/
+- https://huggingface.co/docs/bitsandbytes/v0.46.0/installation
+- https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/rtx-5060-family/
+
+
 ## 能运行的环境
 
 本流程面向 NVIDIA CUDA GPU 的 Linux 环境；Windows 用户使用具备 CUDA
