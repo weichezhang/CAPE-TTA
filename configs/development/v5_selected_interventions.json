@@ -1,0 +1,91 @@
+{
+  "scope": "development_only_privileged_short_rollout_selection",
+  "source_zip_sha256": "7a837fa499c76cd1d14d8017259dd4b76b1db2b0bfa900d5303758119bec1d9f",
+  "cape_commit": "4843d93d7616c50e4c4f44889f260c5ac4775bff",
+  "checkpoint": "openvla/openvla-7b-finetuned-libero-spatial",
+  "checkpoint_revision": "962318cec55ac10993ff0f5f43eda9a270b4c873",
+  "task_id": 0,
+  "suite": "libero_spatial",
+  "selection_group": "untruncated_15",
+  "selection_horizon": 12,
+  "source_seeds": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "states": [
+    {
+      "init_state_id": 0,
+      "baseline_env_action": [
+        -0.002985029947012663,
+        0.1071428656578064,
+        -0.0026785731315612793,
+        -0.0007794112898409367,
+        0.00004201572301099077,
+        0.00012604848598130047,
+        -1
+      ],
+      "selected_env_action": [
+        0.12241297215223312,
+        0.21567228436470032,
+        0.004653359763324261,
+        0.00004831982005271129,
+        0.00004201572301099077,
+        0.00012604848598130047,
+        -1
+      ],
+      "selected_action_id": "action-4",
+      "eligible_count": 5,
+      "short_soft_margin": 0.007800576937356363
+    },
+    {
+      "init_state_id": 1,
+      "baseline_env_action": [
+        -0.002985029947012663,
+        0.04684874787926674,
+        0.019317224621772766,
+        0.00004831982005271129,
+        0.018092434853315353,
+        0.00012604848598130047,
+        -1
+      ],
+      "selected_env_action": [
+        -0.002985029947012663,
+        -0.07373949140310287,
+        -0.8311869502067566,
+        0.046401262283325195,
+        -0.0736638605594635,
+        0.00012604848598130047,
+        -1
+      ],
+      "selected_action_id": "action-1",
+      "eligible_count": 5,
+      "short_soft_margin": 0.006211963980045976
+    },
+    {
+      "init_state_id": 2,
+      "baseline_env_action": [
+        0.5448062419891357,
+        0.32420170307159424,
+        0.15129201114177704,
+        -0.00822899118065834,
+        0.00004201572301099077,
+        0.00012604848598130047,
+        -1
+      ],
+      "selected_env_action": [
+        0.37980887293815613,
+        0.2759664058685303,
+        0.129296213388443,
+        0.00004831982005271129,
+        0.0346386544406414,
+        0.00012604848598130047,
+        -1
+      ],
+      "selected_action_id": "action-6",
+      "eligible_count": 5,
+      "short_soft_margin": 0.0015273991197268244
+    }
+  ]
+}

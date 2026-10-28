@@ -13,6 +13,9 @@ on:
       - 'src/cape_tta/rollout_evidence.py'
       - 'scripts/run_counterfactual_feasibility.py'
       - 'tests/test_rollout_evidence.py'
+      - 'src/cape_tta/full_episode.py'
+      - 'scripts/check_full_horizon.py'
+      - 'tests/test_full_episode.py'
       - '.github/workflows/runtime-evidence-tests.yml'
   pull_request:
   workflow_dispatch:
