@@ -12,6 +12,7 @@ import argparse
 import json
 import os
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
@@ -130,6 +131,10 @@ def main():
     ap.add_argument("--input-dtype", choices=["bf16", "fp16"], default="bf16")
     ap.add_argument("--output", default="results/openvla_oracle_pilot.json")
     args = ap.parse_args()
+    if args.candidates < 1 or args.horizon < 1 or args.settle_steps < 0:
+        ap.error('candidates/horizon must be positive and settle-steps nonnegative')
+    started = time.monotonic()
+    print('PHASE: LIBERO imports', flush=True)
 
     os.environ.setdefault("MUJOCO_GL", "osmesa")
     os.environ.setdefault("PYOPENGL_PLATFORM", "osmesa")
@@ -162,14 +167,19 @@ def main():
         env.seed(0)
         return env
 
+    from huggingface_hub import model_info
+    checkpoint_revision = model_info(args.checkpoint).sha
+    print('PHASE: checkpoint load; revision=' + checkpoint_revision, flush=True)
     handle = load_openvla(
         args.checkpoint,
         args.suite,
         use_flash_attention=not args.no_flash_attention,
         load_in_8bit=args.load_in_8bit,
         input_dtype=args.input_dtype,
+        revision=checkpoint_revision,
     )
 
+    print('PHASE: initial observation', flush=True)
     probe = env_factory()
     try:
         obs = settle(probe, init_state, args.settle_steps)
@@ -179,6 +189,7 @@ def main():
 
     # Validate our generation wrapper against the checkpoint's official
     # predict_action path before sampling alternatives.
+    print('PHASE: wrapper parity', flush=True)
     custom_base, custom_lp, custom_tokens = generate_action(
         handle,
         raw_image,
@@ -204,6 +215,7 @@ def main():
         "tokens": custom_tokens,
     }]
 
+    print('PHASE: candidate generation', flush=True)
     for k in range(1, args.candidates):
         raw, lp, toks = generate_action(
             handle,
@@ -224,7 +236,8 @@ def main():
         })
 
     branch_results = []
-    for cand in candidates:
+    for branch_index, cand in enumerate(candidates):
+        print(f'PHASE: branch {branch_index + 1}/{len(candidates)}', flush=True)
         branch_results.append(
             evaluate_branch(
                 env_factory,
@@ -238,6 +251,7 @@ def main():
         )
 
     # Exact fresh-replay determinism check for the greedy baseline branch.
+    print('PHASE: baseline replay', flush=True)
     base_repeat = evaluate_branch(
         env_factory,
         init_state,
@@ -260,6 +274,10 @@ def main():
         "kind": "OpenVLA Oracle-CAPE pilot",
         "scientific_result": False,
         "checkpoint": args.checkpoint,
+        "checkpoint_revision": checkpoint_revision,
+        "elapsed_seconds": time.monotonic() - started,
+        "seed": args.seed,
+        "settle_steps": args.settle_steps,
         "cape_commit": os.environ.get("CAPE_COMMIT"),
         "runtime": {
             "torch": torch.__version__,
@@ -280,6 +298,8 @@ def main():
         "unnorm_key": handle.unnorm_key,
         "wrapper_parity_max_abs": parity_error,
         "fresh_replay_determinism": {
+            "passed": bool(state_linf <= 1e-7 and soft_repeat_error <= 1e-12
+                           and branch_results[0]["success"] == base_repeat["success"]),
             "final_state_linf": state_linf,
             "soft_progress_abs": soft_repeat_error,
             "success_consistent": branch_results[0]["success"] == base_repeat["success"],

@@ -1,0 +1,29 @@
+# Python 3.10, torch 2.2.0/cu121 installed separately by colab_bootstrap.py.
+# Compatibility pins; the full resolved environment is saved in each run bundle.
+numpy==1.26.4
+scipy==1.11.4
+matplotlib==3.7.5
+transformers==4.40.1
+tokenizers==0.19.1
+timm==0.9.10
+accelerate==0.29.3
+bitsandbytes==0.43.1
+peft==0.11.1
+sentencepiece==0.1.99
+tensorflow==2.15.0
+pillow==10.3.0
+huggingface_hub==0.23.0
+protobuf==4.25.3
+mujoco==2.3.7
+numba==0.59.1
+opencv-python==4.9.0.80
+robosuite==1.4.1
+gym==0.25.2
+PyYAML==6.0.1
+einops
+rich
+safetensors
+imageio[ffmpeg]
+bddl
+easydict
+cloudpickle

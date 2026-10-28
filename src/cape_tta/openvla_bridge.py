@@ -27,6 +27,7 @@ def load_openvla(
     use_flash_attention: bool = True,
     load_in_8bit: bool = False,
     input_dtype: str = "bf16",
+    revision: Optional[str] = None,
 ) -> OpenVLAHandle:
     if not torch.cuda.is_available():
         raise RuntimeError("The OpenVLA experiment requires a CUDA GPU.")
@@ -39,12 +40,14 @@ def load_openvla(
         torch_dtype=dtype,
         low_cpu_mem_usage=True,
         trust_remote_code=True,
+        revision=revision,
         load_in_8bit=load_in_8bit,
         device_map={"": 0} if load_in_8bit else None,
     )
     if not load_in_8bit:
         model = model.to(device)
-    processor = AutoProcessor.from_pretrained(checkpoint, trust_remote_code=True)
+    model.eval()
+    processor = AutoProcessor.from_pretrained(checkpoint, trust_remote_code=True, revision=revision)
 
     key = suite
     if key not in model.norm_stats and f"{key}_no_noops" in model.norm_stats:

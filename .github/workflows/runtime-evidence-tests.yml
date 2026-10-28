@@ -1,0 +1,20 @@
+name: Runtime evidence unit checks (no GPU)
+on:
+  push:
+    paths:
+      - 'src/cape_tta/runtime_config.py'
+      - 'src/cape_tta/pilot_validation.py'
+      - 'scripts/colab_bootstrap.py'
+      - 'tests/test_runtime_evidence.py'
+      - '.github/workflows/runtime-evidence-tests.yml'
+  pull_request:
+  workflow_dispatch:
+jobs:
+  runtime-evidence:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m unittest discover -s tests -v
