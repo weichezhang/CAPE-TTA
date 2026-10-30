@@ -21,6 +21,8 @@ def main():
     args = p.parse_args()
     root = args.bank_root.resolve(); out = root / 'cpu'; out.mkdir(exist_ok=True)
     report = dict(status='running', scope='cached_action_consequence_and_optional_short_horizon_parameter_benefit', episodes=[])
+    config=json.loads((Path(__file__).resolve().parents[1]/'configs/pilot/v9_minimal.json').read_text())
+    expected={f'spatial-task-{t}-init-{s}-seed-{config["seed"]}' for t in config['task_ids'] for s in config['init_state_ids']}
     started = time.monotonic()
     try:
         # No checkpoint download, model load, or GPU allocation in this process.
@@ -38,6 +40,7 @@ def main():
             actual_commit = subprocess.check_output(['git','-C',str(args.libero_root),'rev-parse','HEAD'],text=True).strip()
             if actual_commit != bank['runtime']['libero_commit']: raise ValueError('LIBERO version changed')
             key = bank['episode_id']; cached = out / (key + '.json')
+            if key not in expected: raise ValueError('Unexpected episode in fixed pilot')
             if cached.exists():
                 row = load_sealed(cached)
                 if row['bank_sha256'] != digest(path): raise ValueError('Cached evaluation bank changed')
@@ -115,7 +118,8 @@ def main():
                     if e['episode_id'] == pred['episode_id']: e['parameter_adaptation'].update(pred)
         else:
             report['benefit_gate'] = dict(status='NO_GO_FOR_EXPANSION', reason='Fewer than six independently replay-verified parameter-adaptation episodes', available=len(rows))
-        report['status'] = 'cpu_evaluation_complete'
+        report['missing_episodes']=sorted(expected-{e['episode_id'] for e in report['episodes']})
+        report['status'] = 'incomplete_bank_set' if report['missing_episodes'] else 'cpu_evaluation_complete'
     except BaseException:
         report.update(status='failed', traceback=traceback.format_exc()); traceback.print_exc()
     finally:

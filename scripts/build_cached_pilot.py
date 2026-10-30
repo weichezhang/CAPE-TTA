@@ -68,6 +68,8 @@ def main():
                     path = root/'banks'/f'{key}.json'
                     old = load_sealed(path) if path.exists() else None
                     if old is not None and old['status'] != 'bank_complete': raise RuntimeError('Incomplete bank requires inspection')
+                    if old is not None and args.adaptation != 'none' and old.get('adaptation',{}).get('status') == 'failed':
+                        raise RuntimeError('Previous adapter failure retained; inspect before retrying or expanding')
                     if old is None or (args.adaptation != 'none' and 'adaptation' not in old): needed.append((t,s,key,path))
             if not needed:
                 status['status']='requested_banks_already_complete'; return 0
