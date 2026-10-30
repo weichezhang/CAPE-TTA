@@ -1,0 +1,12 @@
+{
+  "label": "v4",
+  "original_archive": "diagnostic-20261028-052518-1db6bcfd.zip",
+  "archive_sha256": "71ff84b199de068ab474d724a19ba0f874a19b99e77a41ec5f0c922265bfe06d",
+  "raw_member": "probes/probe-20261028-053052-9b8aae6d/diversity.json",
+  "raw_sha256": "06b0225736a601f0cde5559b93d531ada744c3265a3ee98d376e69cc9f2308df",
+  "verified_manifest_entries": 8,
+  "source_commit": "7715fa660da41bdb60a07f18132c74bc2ac1ab9a",
+  "status": "diagnostic_complete",
+  "raw_result_path": "v4/diversity.json",
+  "parameter_adaptation_executed": false
+}

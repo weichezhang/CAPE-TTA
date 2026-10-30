@@ -1,0 +1,26 @@
+{
+  "label": "v8-task1-init0",
+  "original_archive": "task-1-init-0.zip",
+  "archive_sha256": "5537388d6a83f433e450c0c173325189fc3b469a49d2b1fc249886b195737f17",
+  "raw_member": "case/audit.json",
+  "raw_sha256": "b1046e2a7e8ba48a1b116b661d597faec8a8b62959bc0afb1ca804dd4aeac801",
+  "verified_manifest_entries": 8,
+  "source_commit": "998ffd17f9ad344088b8e98b53bbe8da5ff9626c",
+  "status": "paused_branch_budget",
+  "raw_result_path": "v8-task1-init0/audit.json",
+  "parameter_adaptation_executed": false,
+  "branches": {
+    "action-0": {
+      "success": true,
+      "steps_executed": 116,
+      "status": "complete"
+    },
+    "baseline_repeat": {
+      "success": true,
+      "steps_executed": 116,
+      "status": "complete"
+    }
+  },
+  "replay_passed": true,
+  "candidate_evaluation_complete": false
+}

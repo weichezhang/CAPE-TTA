@@ -1,0 +1,1447 @@
+{
+  "status": "diagnostic_complete",
+  "scientific_result": false,
+  "scope": "development_sampling_diagnostic",
+  "grid": [
+    {
+      "name": "original",
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "top_k": null
+    },
+    {
+      "name": "untruncated_07",
+      "temperature": 0.7,
+      "top_p": 1.0,
+      "top_k": 0
+    },
+    {
+      "name": "untruncated_10",
+      "temperature": 1.0,
+      "top_p": 1.0,
+      "top_k": 0
+    },
+    {
+      "name": "untruncated_15",
+      "temperature": 1.5,
+      "top_p": 1.0,
+      "top_k": 0
+    }
+  ],
+  "seeds": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "task_id": 0,
+  "init_state_ids": [
+    0
+  ],
+  "states": [
+    {
+      "init_state_id": 0,
+      "task_language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "baseline": {
+        "tokens": [
+          31887,
+          31872,
+          31872,
+          31871,
+          31862,
+          31857,
+          31744
+        ],
+        "env_action": [
+          -0.002985029947012663,
+          0.1071428656578064,
+          -0.0026785731315612793,
+          -0.0007794112898409367,
+          4.201572301099077e-05,
+          0.00012604848598130047,
+          -1.0
+        ]
+      },
+      "settings": [
+        {
+          "setting": {
+            "name": "original",
+            "temperature": 0.7,
+            "top_p": 0.95,
+            "top_k": null
+          },
+          "candidates": [
+            {
+              "seed": 8,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.03939764201641083,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": null,
+                "effective_top_k": 50,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 2,
+                    "max_probability": 0.9613683819770813,
+                    "entropy_nats": 0.16357085506242816,
+                    "effective_support": 1.1777087988616495
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 9,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.03939764201641083,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": null,
+                "effective_top_k": 50,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 2,
+                    "max_probability": 0.9613683819770813,
+                    "entropy_nats": 0.16357085506242816,
+                    "effective_support": 1.1777087988616495
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 10,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.03939764201641083,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": null,
+                "effective_top_k": 50,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 2,
+                    "max_probability": 0.9613683819770813,
+                    "entropy_nats": 0.16357085506242816,
+                    "effective_support": 1.1777087988616495
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 11,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.03939764201641083,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": null,
+                "effective_top_k": 50,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 2,
+                    "max_probability": 0.9613683819770813,
+                    "entropy_nats": 0.16357085506242816,
+                    "effective_support": 1.1777087988616495
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  },
+                  {
+                    "support_size": 1,
+                    "max_probability": 1.0,
+                    "entropy_nats": -0.0,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            }
+          ],
+          "summary": {
+            "candidate_count": 4,
+            "unique_token_candidates": 1,
+            "unique_executed_actions": 1,
+            "baseline_token_matches": 4,
+            "max_action_linf_from_baseline": 0.0,
+            "scope": "first-action diversity only; no rollout benefit measured"
+          }
+        },
+        {
+          "setting": {
+            "name": "untruncated_07",
+            "temperature": 0.7,
+            "top_p": 1.0,
+            "top_k": 0
+          },
+          "candidates": [
+            {
+              "seed": 8,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.05474615626337709,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9469804167747498,
+                    "entropy_nats": 0.2507336257771967,
+                    "effective_support": 1.2849677564521058
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9997642636299133,
+                    "entropy_nats": 0.002416474500929458,
+                    "effective_support": 1.0024193965286308
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.5709315819190498e-09,
+                    "effective_support": 1.0000000015709316
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999704360961914,
+                    "entropy_nats": 0.0003482989849794381,
+                    "effective_support": 1.0003483596481137
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999984502792358,
+                    "entropy_nats": 2.3340204825815576e-05,
+                    "effective_support": 1.0000233404772105
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.999997615814209,
+                    "entropy_nats": 3.2770381588390836e-05,
+                    "effective_support": 1.0000327709185433
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 7.969016041392379e-19,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 9,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.05474615626337709,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9469804167747498,
+                    "entropy_nats": 0.2507336257771967,
+                    "effective_support": 1.2849677564521058
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9997642636299133,
+                    "entropy_nats": 0.002416474500929458,
+                    "effective_support": 1.0024193965286308
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.5709315819190498e-09,
+                    "effective_support": 1.0000000015709316
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999704360961914,
+                    "entropy_nats": 0.0003482989849794381,
+                    "effective_support": 1.0003483596481137
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999984502792358,
+                    "entropy_nats": 2.3340204825815576e-05,
+                    "effective_support": 1.0000233404772105
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.999997615814209,
+                    "entropy_nats": 3.2770381588390836e-05,
+                    "effective_support": 1.0000327709185433
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 7.969016041392379e-19,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 10,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.05474615626337709,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9469804167747498,
+                    "entropy_nats": 0.2507336257771967,
+                    "effective_support": 1.2849677564521058
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9997642636299133,
+                    "entropy_nats": 0.002416474500929458,
+                    "effective_support": 1.0024193965286308
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.5709315819190498e-09,
+                    "effective_support": 1.0000000015709316
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999704360961914,
+                    "entropy_nats": 0.0003482989849794381,
+                    "effective_support": 1.0003483596481137
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999984502792358,
+                    "entropy_nats": 2.3340204825815576e-05,
+                    "effective_support": 1.0000233404772105
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.999997615814209,
+                    "entropy_nats": 3.2770381588390836e-05,
+                    "effective_support": 1.0000327709185433
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 7.969016041392379e-19,
+                    "effective_support": 1.0
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 11,
+              "tokens": [
+                31868,
+                31890,
+                31864,
+                31870,
+                31823,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                0.12241297408295604,
+                -0.0013865477898541423,
+                0.05597688894645836,
+                4.831982009551039e-05,
+                0.058705879368034064,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                0.12241297215223312,
+                -0.0013865478103980422,
+                0.05597689002752304,
+                4.831982005271129e-05,
+                0.058705877512693405,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -5.415011181155933,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9469804167747498,
+                    "entropy_nats": 0.2507336257771967,
+                    "effective_support": 1.2849677564521058
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8332725167274475,
+                    "entropy_nats": 0.5664245165639267,
+                    "effective_support": 1.7619559312570952
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8992425799369812,
+                    "entropy_nats": 0.36207241010523655,
+                    "effective_support": 1.4363029410421266
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999585151672363,
+                    "entropy_nats": 0.0004914801715049873,
+                    "effective_support": 1.0004916009676732
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.48714712262153625,
+                    "entropy_nats": 1.2635017794301728,
+                    "effective_support": 3.5377883762336846
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999713897705078,
+                    "entropy_nats": 0.0003297224525292241,
+                    "effective_support": 1.000329776816952
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.6365914669003163e-12,
+                    "effective_support": 1.0000000000016367
+                  }
+                ]
+              }
+            }
+          ],
+          "summary": {
+            "candidate_count": 4,
+            "unique_token_candidates": 2,
+            "unique_executed_actions": 2,
+            "baseline_token_matches": 3,
+            "max_action_linf_from_baseline": 0.1253980020992458,
+            "scope": "first-action diversity only; no rollout benefit measured"
+          }
+        },
+        {
+          "setting": {
+            "name": "untruncated_10",
+            "temperature": 1.0,
+            "top_p": 1.0,
+            "top_k": 0
+          },
+          "candidates": [
+            {
+              "seed": 8,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.17256190405168326,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8456650376319885,
+                    "entropy_nats": 0.6303076930586718,
+                    "effective_support": 1.8781883958969965
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9960750937461853,
+                    "entropy_nats": 0.030298678509000487,
+                    "effective_support": 1.0307623545447202
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999998807907104,
+                    "entropy_nats": 1.5277161806533267e-06,
+                    "effective_support": 1.0000015277173475
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9992245435714722,
+                    "entropy_nats": 0.006785444529462398,
+                    "effective_support": 1.006808517816173
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998950958251953,
+                    "entropy_nats": 0.001144500990464479,
+                    "effective_support": 1.001145156181655
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998834133148193,
+                    "entropy_nats": 0.0011868160239765014,
+                    "effective_support": 1.001187520568808
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 4.715500619748631e-13,
+                    "effective_support": 1.0000000000004716
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 9,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.17256190405168326,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8456650376319885,
+                    "entropy_nats": 0.6303076930586718,
+                    "effective_support": 1.8781883958969965
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9960750937461853,
+                    "entropy_nats": 0.030298678509000487,
+                    "effective_support": 1.0307623545447202
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999998807907104,
+                    "entropy_nats": 1.5277161806533267e-06,
+                    "effective_support": 1.0000015277173475
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9992245435714722,
+                    "entropy_nats": 0.006785444529462398,
+                    "effective_support": 1.006808517816173
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998950958251953,
+                    "entropy_nats": 0.001144500990464479,
+                    "effective_support": 1.001145156181655
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998834133148193,
+                    "entropy_nats": 0.0011868160239765014,
+                    "effective_support": 1.001187520568808
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 4.715500619748631e-13,
+                    "effective_support": 1.0000000000004716
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 10,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.17256190405168326,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8456650376319885,
+                    "entropy_nats": 0.6303076930586718,
+                    "effective_support": 1.8781883958969965
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9960750937461853,
+                    "entropy_nats": 0.030298678509000487,
+                    "effective_support": 1.0307623545447202
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999998807907104,
+                    "entropy_nats": 1.5277161806533267e-06,
+                    "effective_support": 1.0000015277173475
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9992245435714722,
+                    "entropy_nats": 0.006785444529462398,
+                    "effective_support": 1.006808517816173
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998950958251953,
+                    "entropy_nats": 0.001144500990464479,
+                    "effective_support": 1.001145156181655
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998834133148193,
+                    "entropy_nats": 0.0011868160239765014,
+                    "effective_support": 1.001187520568808
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 4.715500619748631e-13,
+                    "effective_support": 1.0000000000004716
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 11,
+              "tokens": [
+                31868,
+                31890,
+                31864,
+                31870,
+                31831,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                0.12241297408295604,
+                -0.0013865477898541423,
+                0.05597688894645836,
+                4.831982009551039e-05,
+                0.04667226631267396,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                0.12241297215223312,
+                -0.0013865478103980422,
+                0.05597689002752304,
+                4.831982005271129e-05,
+                0.046672265976667404,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -5.45931164373178,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8456650376319885,
+                    "entropy_nats": 0.6303076930586718,
+                    "effective_support": 1.8781883958969965
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.7079980373382568,
+                    "entropy_nats": 0.8730661208229799,
+                    "effective_support": 2.394240641860851
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.7975587248802185,
+                    "entropy_nats": 0.6500275227734457,
+                    "effective_support": 1.9155935507356796
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9988771080970764,
+                    "entropy_nats": 0.009911206686790573,
+                    "effective_support": 1.0099604853649524
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.4039183259010315,
+                    "entropy_nats": 1.4208597610580622,
+                    "effective_support": 4.140678904793856
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.14391773571136e-06,
+                    "effective_support": 1.00000114391839
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 2.611217057546383e-10,
+                    "effective_support": 1.0000000002611218
+                  }
+                ]
+              }
+            }
+          ],
+          "summary": {
+            "candidate_count": 4,
+            "unique_token_candidates": 2,
+            "unique_executed_actions": 2,
+            "baseline_token_matches": 3,
+            "max_action_linf_from_baseline": 0.1253980020992458,
+            "scope": "first-action diversity only; no rollout benefit measured"
+          }
+        },
+        {
+          "setting": {
+            "name": "untruncated_15",
+            "temperature": 1.5,
+            "top_p": 1.0,
+            "top_k": 0
+          },
+          "candidates": [
+            {
+              "seed": 8,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31862,
+                31870,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                0.006670168655760145,
+                -0.01199159733220645,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                0.006670168600976467,
+                -0.011991597712039948,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -5.558077919688003,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.6387286186218262,
+                    "entropy_nats": 1.4044805382941683,
+                    "effective_support": 4.073410210970158
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9611402153968811,
+                    "entropy_nats": 0.231081528918299,
+                    "effective_support": 1.2599619585974664
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999752044677734,
+                    "entropy_nats": 0.00031270894061073657,
+                    "effective_support": 1.0003127578391484
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9888349175453186,
+                    "entropy_nats": 0.07462869569655521,
+                    "effective_support": 1.0774840021538632
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.8702490925788879,
+                    "entropy_nats": 0.571029239753527,
+                    "effective_support": 1.7700879590924519
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9967327117919922,
+                    "entropy_nats": 0.030179697121993445,
+                    "effective_support": 1.0306397203058424
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 2.7161425712532977e-07,
+                    "effective_support": 1.000000271614294
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 9,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.5048243160545098,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.6387286186218262,
+                    "entropy_nats": 1.4044805382941683,
+                    "effective_support": 4.073410210970158
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9611402153968811,
+                    "entropy_nats": 0.231081528918299,
+                    "effective_support": 1.2599619585974664
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999752044677734,
+                    "entropy_nats": 0.00031270894061073657,
+                    "effective_support": 1.0003127578391484
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9888349175453186,
+                    "entropy_nats": 0.07462869569655521,
+                    "effective_support": 1.0774840021538632
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9969814419746399,
+                    "entropy_nats": 0.023918858389313822,
+                    "effective_support": 1.0242072086962701
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9973655343055725,
+                    "entropy_nats": 0.019696758545208658,
+                    "effective_support": 1.0198920195899859
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.2895810668898419e-08,
+                    "effective_support": 1.0000000128958106
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 10,
+              "tokens": [
+                31887,
+                31872,
+                31872,
+                31871,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                -0.0029850299042814,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112843625689,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                -0.002985029947012663,
+                0.1071428656578064,
+                -0.0026785731315612793,
+                -0.0007794112898409367,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -0.5048243160545098,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.6387286186218262,
+                    "entropy_nats": 1.4044805382941683,
+                    "effective_support": 4.073410210970158
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9611402153968811,
+                    "entropy_nats": 0.231081528918299,
+                    "effective_support": 1.2599619585974664
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999752044677734,
+                    "entropy_nats": 0.00031270894061073657,
+                    "effective_support": 1.0003127578391484
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9888349175453186,
+                    "entropy_nats": 0.07462869569655521,
+                    "effective_support": 1.0774840021538632
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9969814419746399,
+                    "entropy_nats": 0.023918858389313822,
+                    "effective_support": 1.0242072086962701
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9973655343055725,
+                    "entropy_nats": 0.019696758545208658,
+                    "effective_support": 1.0198920195899859
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.2895810668898419e-08,
+                    "effective_support": 1.0000000128958106
+                  }
+                ]
+              }
+            },
+            {
+              "seed": 11,
+              "tokens": [
+                31868,
+                31854,
+                31871,
+                31870,
+                31862,
+                31857,
+                31744
+              ],
+              "raw_action": [
+                0.12241297408295604,
+                0.21567227910546694,
+                0.004653359628191134,
+                4.831982009551039e-05,
+                4.201572315365443e-05,
+                0.00012604848426930881,
+                0.996078431372549
+              ],
+              "env_action": [
+                0.12241297215223312,
+                0.21567228436470032,
+                0.004653359763324261,
+                4.831982005271129e-05,
+                4.201572301099077e-05,
+                0.00012604848598130047,
+                -1.0
+              ],
+              "processed_score_logprob": -7.583414453600199,
+              "distribution": {
+                "score_space": "generation scores after processors and sampling warpers; not base-policy log probability",
+                "requested_top_k": 0,
+                "effective_top_k": 0,
+                "restrict_to_action_tokens": true,
+                "tokens": [
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.6387286186218262,
+                    "entropy_nats": 1.4044805382941683,
+                    "effective_support": 4.073410210970158
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.5497606992721558,
+                    "entropy_nats": 1.3400048955824648,
+                    "effective_support": 3.819062201854518
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9540386199951172,
+                    "entropy_nats": 0.2572416591182156,
+                    "effective_support": 1.2933576406638956
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9998894929885864,
+                    "entropy_nats": 0.0013501570922407672,
+                    "effective_support": 1.0013510689646719
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.9999822378158569,
+                    "entropy_nats": 0.00025286708310986967,
+                    "effective_support": 1.0002528990566857
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 0.999896764755249,
+                    "entropy_nats": 0.001305607429632946,
+                    "effective_support": 1.0013064601060597
+                  },
+                  {
+                    "support_size": 256,
+                    "max_probability": 1.0,
+                    "entropy_nats": 1.157370271658119e-08,
+                    "effective_support": 1.0000000115737029
+                  }
+                ]
+              }
+            }
+          ],
+          "summary": {
+            "candidate_count": 4,
+            "unique_token_candidates": 3,
+            "unique_executed_actions": 3,
+            "baseline_token_matches": 2,
+            "max_action_linf_from_baseline": 0.1253980020992458,
+            "scope": "first-action diversity only; no rollout benefit measured"
+          }
+        }
+      ],
+      "same_seed_tokens_reproduced": true
+    }
+  ],
+  "gpu": "Tesla T4",
+  "torch": "2.2.0+cu121",
+  "cuda": "12.1",
+  "cape_commit": "7715fa660da41bdb60a07f18132c74bc2ac1ab9a",
+  "source_modified": false,
+  "libero_commit": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+  "checkpoint": "openvla/openvla-7b-finetuned-libero-spatial",
+  "checkpoint_revision": "962318cec55ac10993ff0f5f43eda9a270b4c873",
+  "elapsed_seconds": 273.41726081600007
+}

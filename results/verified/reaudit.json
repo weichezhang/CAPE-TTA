@@ -1,0 +1,345 @@
+{
+  "scope": "historical_real_results_reaudit_not_new_GPU_experiments",
+  "bundles": [
+    {
+      "label": "v3",
+      "original_archive": "run-20261028-045620-7e26d300.zip",
+      "archive_sha256": "584520c17a2dea43989aba2ec350b265c76480d7bd44390b98894091785f7530",
+      "raw_member": "openvla_oracle_pilot_colab.json",
+      "raw_sha256": "cc8ae2e797c9602899b560923717a12a6cf3084bd9534716046e369acf926f7b",
+      "verified_manifest_entries": 6,
+      "source_commit": "86f393928ae264eb000c15e9a1bf2924c32fb47d",
+      "status": null,
+      "raw_result_path": "v3/openvla_oracle_pilot_colab.json",
+      "parameter_adaptation_executed": false
+    },
+    {
+      "label": "v4",
+      "original_archive": "diagnostic-20261028-052518-1db6bcfd.zip",
+      "archive_sha256": "71ff84b199de068ab474d724a19ba0f874a19b99e77a41ec5f0c922265bfe06d",
+      "raw_member": "probes/probe-20261028-053052-9b8aae6d/diversity.json",
+      "raw_sha256": "06b0225736a601f0cde5559b93d531ada744c3265a3ee98d376e69cc9f2308df",
+      "verified_manifest_entries": 8,
+      "source_commit": "7715fa660da41bdb60a07f18132c74bc2ac1ab9a",
+      "status": "diagnostic_complete",
+      "raw_result_path": "v4/diversity.json",
+      "parameter_adaptation_executed": false
+    },
+    {
+      "label": "v5",
+      "original_archive": "feasibility-20261028-054219-6bd651bb.zip",
+      "archive_sha256": "7a837fa499c76cd1d14d8017259dd4b76b1db2b0bfa900d5303758119bec1d9f",
+      "raw_member": "rollouts/feasibility-20261028-054824-bfac4d23/feasibility.json",
+      "raw_sha256": "c9d2b3ba8989845f10e28e47cdb5e0f0a9c69d033ee2a9bc7cd4e9dc2c72c27d",
+      "verified_manifest_entries": 8,
+      "source_commit": "4843d93d7616c50e4c4f44889f260c5ac4775bff",
+      "status": "feasibility_complete",
+      "raw_result_path": "v5/feasibility.json",
+      "parameter_adaptation_executed": false,
+      "states": [
+        {
+          "init_state_id": 0,
+          "task_id": 0,
+          "replay": {
+            "passed": true,
+            "final_state_linf": 0.0,
+            "soft_progress_abs": 0.0,
+            "success_consistent": true
+          },
+          "settings": [
+            {
+              "name": "original",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 1,
+                "unique_eligible_actions": 1,
+                "baseline_soft_gain": 0.0004340028226924586,
+                "oracle_best_action_id": "action-0",
+                "oracle_soft_margin": 0.0,
+                "mean_sampled_soft_margin": 0.0,
+                "sampled_strictly_better_count": 0,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_07",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 2,
+                "unique_eligible_actions": 2,
+                "baseline_soft_gain": 0.0004340028226924586,
+                "oracle_best_action_id": "action-1",
+                "oracle_soft_margin": 0.0035900352023363613,
+                "mean_sampled_soft_margin": 0.0008975088005840903,
+                "sampled_strictly_better_count": 1,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_10",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 2,
+                "unique_eligible_actions": 2,
+                "baseline_soft_gain": 0.0004340028226924586,
+                "oracle_best_action_id": "action-2",
+                "oracle_soft_margin": 0.003928658270665464,
+                "mean_sampled_soft_margin": 0.000982164567666366,
+                "sampled_strictly_better_count": 1,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_15",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 3,
+                "unique_eligible_actions": 3,
+                "baseline_soft_gain": 0.0004340028226924586,
+                "oracle_best_action_id": "action-4",
+                "oracle_soft_margin": 0.007800576937356363,
+                "mean_sampled_soft_margin": 0.0021374805957578707,
+                "sampled_strictly_better_count": 2,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            }
+          ]
+        },
+        {
+          "init_state_id": 1,
+          "task_id": 0,
+          "replay": {
+            "passed": true,
+            "final_state_linf": 0.0,
+            "soft_progress_abs": 0.0,
+            "success_consistent": true
+          },
+          "settings": [
+            {
+              "name": "original",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 1,
+                "unique_eligible_actions": 1,
+                "baseline_soft_gain": 0.0009161261396836151,
+                "oracle_best_action_id": "action-0",
+                "oracle_soft_margin": 0.0,
+                "mean_sampled_soft_margin": 0.0,
+                "sampled_strictly_better_count": 0,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_07",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 1,
+                "unique_eligible_actions": 1,
+                "baseline_soft_gain": 0.0009161261396836151,
+                "oracle_best_action_id": "action-0",
+                "oracle_soft_margin": 0.0,
+                "mean_sampled_soft_margin": 0.0,
+                "sampled_strictly_better_count": 0,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_10",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 1,
+                "unique_eligible_actions": 1,
+                "baseline_soft_gain": 0.0009161261396836151,
+                "oracle_best_action_id": "action-0",
+                "oracle_soft_margin": 0.0,
+                "mean_sampled_soft_margin": 0.0,
+                "sampled_strictly_better_count": 0,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_15",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 2,
+                "unique_eligible_actions": 2,
+                "baseline_soft_gain": 0.0009161261396836151,
+                "oracle_best_action_id": "action-1",
+                "oracle_soft_margin": 0.006211963980045976,
+                "mean_sampled_soft_margin": 0.001552990995011494,
+                "sampled_strictly_better_count": 1,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            }
+          ]
+        },
+        {
+          "init_state_id": 2,
+          "task_id": 0,
+          "replay": {
+            "passed": true,
+            "final_state_linf": 0.0,
+            "soft_progress_abs": 0.0,
+            "success_consistent": true
+          },
+          "settings": [
+            {
+              "name": "original",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 3,
+                "unique_eligible_actions": 3,
+                "baseline_soft_gain": 0.006214967370590352,
+                "oracle_best_action_id": "action-2",
+                "oracle_soft_margin": 0.000934473103818001,
+                "mean_sampled_soft_margin": 0.0006148277630714238,
+                "sampled_strictly_better_count": 3,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_07",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 3,
+                "unique_eligible_actions": 3,
+                "baseline_soft_gain": 0.006214967370590352,
+                "oracle_best_action_id": "action-2",
+                "oracle_soft_margin": 0.000934473103818001,
+                "mean_sampled_soft_margin": 0.0006383561184400283,
+                "sampled_strictly_better_count": 3,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_10",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 3,
+                "unique_eligible_actions": 3,
+                "baseline_soft_gain": 0.006214967370590352,
+                "oracle_best_action_id": "action-2",
+                "oracle_soft_margin": 0.000934473103818001,
+                "mean_sampled_soft_margin": 0.0005315873265211851,
+                "sampled_strictly_better_count": 3,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            },
+            {
+              "name": "untruncated_15",
+              "summary": {
+                "sample_count": 4,
+                "eligible_count_including_baseline": 5,
+                "unique_sampled_actions": 4,
+                "unique_eligible_actions": 5,
+                "baseline_soft_gain": 0.006214967370590352,
+                "oracle_best_action_id": "action-6",
+                "oracle_soft_margin": 0.0015273991197268244,
+                "mean_sampled_soft_margin": 0.001037823418490208,
+                "sampled_strictly_better_count": 4,
+                "sampled_strictly_worse_count": 0,
+                "baseline_success_within_horizon": false,
+                "any_candidate_success_within_horizon": false,
+                "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "v6-init0",
+      "original_archive": "full-check-20261028-115543-36875ca2.zip",
+      "archive_sha256": "28f643d6756b6050d5ad1a23967381c20f82b471164ab1456e2672bf2dc55595",
+      "raw_member": "rollouts/full-20261028-120106-9f9407b5/full_horizon.json",
+      "raw_sha256": "4cb59bfee141452efcf73c542e96feea959e4398234e38ba27bd89cca6584975",
+      "verified_manifest_entries": 8,
+      "source_commit": "8f04f8898591add10db035b6bad08acf15823874",
+      "status": "full_horizon_complete",
+      "raw_result_path": "v6-init0/full_horizon.json",
+      "parameter_adaptation_executed": false
+    },
+    {
+      "label": "v6-init12",
+      "original_archive": "full-check-12-20261028-121920-0e860805.zip",
+      "archive_sha256": "0edd7058f1bf63773404f4033155cb7e520a83c246c5a58a0eb43b6babbb699f",
+      "raw_member": "rollouts/full-20261028-122504-42d45146/full_horizon.json",
+      "raw_sha256": "ff9d268137082d3abc6637a9eb23d9ddfa624077674fbdeaf1fa96a3f697faad",
+      "verified_manifest_entries": 8,
+      "source_commit": "8f04f8898591add10db035b6bad08acf15823874",
+      "status": "full_horizon_complete",
+      "raw_result_path": "v6-init12/full_horizon.json",
+      "parameter_adaptation_executed": false
+    },
+    {
+      "label": "v8-task1-init0",
+      "original_archive": "task-1-init-0.zip",
+      "archive_sha256": "5537388d6a83f433e450c0c173325189fc3b469a49d2b1fc249886b195737f17",
+      "raw_member": "case/audit.json",
+      "raw_sha256": "b1046e2a7e8ba48a1b116b661d597faec8a8b62959bc0afb1ca804dd4aeac801",
+      "verified_manifest_entries": 8,
+      "source_commit": "998ffd17f9ad344088b8e98b53bbe8da5ff9626c",
+      "status": "paused_branch_budget",
+      "raw_result_path": "v8-task1-init0/audit.json",
+      "parameter_adaptation_executed": false,
+      "branches": {
+        "action-0": {
+          "success": true,
+          "steps_executed": 116,
+          "status": "complete"
+        },
+        "baseline_repeat": {
+          "success": true,
+          "steps_executed": 116,
+          "status": "complete"
+        }
+      },
+      "replay_passed": true,
+      "candidate_evaluation_complete": false
+    }
+  ]
+}

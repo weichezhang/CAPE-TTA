@@ -1,0 +1,17 @@
+{
+  "protocol": "v9-minimal-closed-loop-benefit-and-open-loop-action-diagnostic",
+  "suite": "libero_spatial",
+  "task_ids": [1, 2],
+  "init_state_ids": [0, 1, 2],
+  "seed": 7,
+  "environment_seed": 0,
+  "K": 4,
+  "H": 12,
+  "settle_steps": 10,
+  "factual_prefix_steps": 24,
+  "temperature": 1.5,
+  "top_p": 1.0,
+  "top_k": 0,
+  "alpha": 0.1,
+  "note": "Development pilot; task 1 init 0 has prior baseline exposure. Not a held-out final test. Six episodes cannot provide a finite alpha=.1 split-conformal quantile with two calibration episodes."
+}

@@ -1,0 +1,12 @@
+{
+  "label": "v6-init0",
+  "original_archive": "full-check-20261028-115543-36875ca2.zip",
+  "archive_sha256": "28f643d6756b6050d5ad1a23967381c20f82b471164ab1456e2672bf2dc55595",
+  "raw_member": "rollouts/full-20261028-120106-9f9407b5/full_horizon.json",
+  "raw_sha256": "4cb59bfee141452efcf73c542e96feea959e4398234e38ba27bd89cca6584975",
+  "verified_manifest_entries": 8,
+  "source_commit": "8f04f8898591add10db035b6bad08acf15823874",
+  "status": "full_horizon_complete",
+  "raw_result_path": "v6-init0/full_horizon.json",
+  "parameter_adaptation_executed": false
+}

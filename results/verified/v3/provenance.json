@@ -1,0 +1,12 @@
+{
+  "label": "v3",
+  "original_archive": "run-20261028-045620-7e26d300.zip",
+  "archive_sha256": "584520c17a2dea43989aba2ec350b265c76480d7bd44390b98894091785f7530",
+  "raw_member": "openvla_oracle_pilot_colab.json",
+  "raw_sha256": "cc8ae2e797c9602899b560923717a12a6cf3084bd9534716046e369acf926f7b",
+  "verified_manifest_entries": 6,
+  "source_commit": "86f393928ae264eb000c15e9a1bf2924c32fb47d",
+  "status": null,
+  "raw_result_path": "v3/openvla_oracle_pilot_colab.json",
+  "parameter_adaptation_executed": false
+}

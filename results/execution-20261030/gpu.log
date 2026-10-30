@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/1eecf82a1190/cape-work/scripts/build_cached_pilot.py", line 35, in main
+    import torch
+ModuleNotFoundError: No module named 'torch'

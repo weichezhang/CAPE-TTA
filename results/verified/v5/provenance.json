@@ -1,0 +1,266 @@
+{
+  "label": "v5",
+  "original_archive": "feasibility-20261028-054219-6bd651bb.zip",
+  "archive_sha256": "7a837fa499c76cd1d14d8017259dd4b76b1db2b0bfa900d5303758119bec1d9f",
+  "raw_member": "rollouts/feasibility-20261028-054824-bfac4d23/feasibility.json",
+  "raw_sha256": "c9d2b3ba8989845f10e28e47cdb5e0f0a9c69d033ee2a9bc7cd4e9dc2c72c27d",
+  "verified_manifest_entries": 8,
+  "source_commit": "4843d93d7616c50e4c4f44889f260c5ac4775bff",
+  "status": "feasibility_complete",
+  "raw_result_path": "v5/feasibility.json",
+  "parameter_adaptation_executed": false,
+  "states": [
+    {
+      "init_state_id": 0,
+      "task_id": 0,
+      "replay": {
+        "passed": true,
+        "final_state_linf": 0.0,
+        "soft_progress_abs": 0.0,
+        "success_consistent": true
+      },
+      "settings": [
+        {
+          "name": "original",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 1,
+            "unique_eligible_actions": 1,
+            "baseline_soft_gain": 0.0004340028226924586,
+            "oracle_best_action_id": "action-0",
+            "oracle_soft_margin": 0.0,
+            "mean_sampled_soft_margin": 0.0,
+            "sampled_strictly_better_count": 0,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_07",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 2,
+            "unique_eligible_actions": 2,
+            "baseline_soft_gain": 0.0004340028226924586,
+            "oracle_best_action_id": "action-1",
+            "oracle_soft_margin": 0.0035900352023363613,
+            "mean_sampled_soft_margin": 0.0008975088005840903,
+            "sampled_strictly_better_count": 1,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_10",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 2,
+            "unique_eligible_actions": 2,
+            "baseline_soft_gain": 0.0004340028226924586,
+            "oracle_best_action_id": "action-2",
+            "oracle_soft_margin": 0.003928658270665464,
+            "mean_sampled_soft_margin": 0.000982164567666366,
+            "sampled_strictly_better_count": 1,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_15",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 3,
+            "unique_eligible_actions": 3,
+            "baseline_soft_gain": 0.0004340028226924586,
+            "oracle_best_action_id": "action-4",
+            "oracle_soft_margin": 0.007800576937356363,
+            "mean_sampled_soft_margin": 0.0021374805957578707,
+            "sampled_strictly_better_count": 2,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        }
+      ]
+    },
+    {
+      "init_state_id": 1,
+      "task_id": 0,
+      "replay": {
+        "passed": true,
+        "final_state_linf": 0.0,
+        "soft_progress_abs": 0.0,
+        "success_consistent": true
+      },
+      "settings": [
+        {
+          "name": "original",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 1,
+            "unique_eligible_actions": 1,
+            "baseline_soft_gain": 0.0009161261396836151,
+            "oracle_best_action_id": "action-0",
+            "oracle_soft_margin": 0.0,
+            "mean_sampled_soft_margin": 0.0,
+            "sampled_strictly_better_count": 0,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_07",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 1,
+            "unique_eligible_actions": 1,
+            "baseline_soft_gain": 0.0009161261396836151,
+            "oracle_best_action_id": "action-0",
+            "oracle_soft_margin": 0.0,
+            "mean_sampled_soft_margin": 0.0,
+            "sampled_strictly_better_count": 0,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_10",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 1,
+            "unique_eligible_actions": 1,
+            "baseline_soft_gain": 0.0009161261396836151,
+            "oracle_best_action_id": "action-0",
+            "oracle_soft_margin": 0.0,
+            "mean_sampled_soft_margin": 0.0,
+            "sampled_strictly_better_count": 0,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_15",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 2,
+            "unique_eligible_actions": 2,
+            "baseline_soft_gain": 0.0009161261396836151,
+            "oracle_best_action_id": "action-1",
+            "oracle_soft_margin": 0.006211963980045976,
+            "mean_sampled_soft_margin": 0.001552990995011494,
+            "sampled_strictly_better_count": 1,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        }
+      ]
+    },
+    {
+      "init_state_id": 2,
+      "task_id": 0,
+      "replay": {
+        "passed": true,
+        "final_state_linf": 0.0,
+        "soft_progress_abs": 0.0,
+        "success_consistent": true
+      },
+      "settings": [
+        {
+          "name": "original",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 3,
+            "unique_eligible_actions": 3,
+            "baseline_soft_gain": 0.006214967370590352,
+            "oracle_best_action_id": "action-2",
+            "oracle_soft_margin": 0.000934473103818001,
+            "mean_sampled_soft_margin": 0.0006148277630714238,
+            "sampled_strictly_better_count": 3,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_07",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 3,
+            "unique_eligible_actions": 3,
+            "baseline_soft_gain": 0.006214967370590352,
+            "oracle_best_action_id": "action-2",
+            "oracle_soft_margin": 0.000934473103818001,
+            "mean_sampled_soft_margin": 0.0006383561184400283,
+            "sampled_strictly_better_count": 3,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_10",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 3,
+            "unique_eligible_actions": 3,
+            "baseline_soft_gain": 0.006214967370590352,
+            "oracle_best_action_id": "action-2",
+            "oracle_soft_margin": 0.000934473103818001,
+            "mean_sampled_soft_margin": 0.0005315873265211851,
+            "sampled_strictly_better_count": 3,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        },
+        {
+          "name": "untruncated_15",
+          "summary": {
+            "sample_count": 4,
+            "eligible_count_including_baseline": 5,
+            "unique_sampled_actions": 4,
+            "unique_eligible_actions": 5,
+            "baseline_soft_gain": 0.006214967370590352,
+            "oracle_best_action_id": "action-6",
+            "oracle_soft_margin": 0.0015273991197268244,
+            "mean_sampled_soft_margin": 0.001037823418490208,
+            "sampled_strictly_better_count": 4,
+            "sampled_strictly_worse_count": 0,
+            "baseline_success_within_horizon": false,
+            "any_candidate_success_within_horizon": false,
+            "scope": "privileged first-action intervention with frozen continuation; not a deployable method"
+          }
+        }
+      ]
+    }
+  ]
+}

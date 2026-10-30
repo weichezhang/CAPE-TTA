@@ -1,0 +1,7 @@
+{
+  "status": "failed",
+  "scope": "v9_low_compute_pilot",
+  "experiments_completed": [],
+  "failure": "Traceback (most recent call last):\n  File \"/workspace/scratch/1eecf82a1190/cape-work/scripts/build_cached_pilot.py\", line 35, in main\n    import torch\nModuleNotFoundError: No module named 'torch'\n",
+  "elapsed_seconds": 0.0012481449999768301
+}

@@ -1,0 +1,10 @@
+{
+  "recorded_utc": "2026-10-30T02:48:04.478966+00:00",
+  "status": "blocked_before_model_load",
+  "GPU_experiments_executed": 0,
+  "observed_failure": "ModuleNotFoundError: No module named torch",
+  "nvidia_smi_available": false,
+  "browser_observation": "Colab notebook opens with Login link; no authenticated running runtime in this session",
+  "go_no_go": "NO_GO_FOR_EXPANSION_INSUFFICIENT_PARAMETER_BENEFIT_EVIDENCE",
+  "not_a_negative_scientific_result": true
+}
